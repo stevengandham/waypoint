@@ -30,14 +30,13 @@ export default function Navbar({ activeSection, onNavClick }) {
             e.preventDefault();
             onNavClick("home");
           }}
-          className="flex items-center gap-3 text-white font-bold text-xl"
+          className="flex items-center"
         >
           <img
-            src="/images/logo.jpg"
-            alt="Waypoint"
-            className="h-10 w-10 rounded-lg object-cover"
+            src="/images/logo.svg"
+            alt={content.site.title}
+            className="h-8 sm:h-9 w-auto drop-shadow-[0_0_12px_rgba(236,72,153,0.25)]"
           />
-          <span className="hidden sm:inline">{content.site.title}</span>
         </a>
 
         {/* Desktop nav */}

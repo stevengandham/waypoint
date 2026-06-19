@@ -22,9 +22,9 @@ export default function Hero() {
 
       {/* Logo */}
       <img
-        src="/images/logo.jpg"
-        alt="Waypoint Logo"
-        className="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover shadow-2xl shadow-black/40 mb-8 animate-fade-up"
+        src="/images/logo.svg"
+        alt="Waypoint"
+        className="w-48 sm:w-64 h-auto drop-shadow-[0_0_30px_rgba(236,72,153,0.3)] mb-8 animate-fade-up"
       />
 
       {/* Headline */}
