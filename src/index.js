@@ -6,15 +6,6 @@ export default {
       return handleSubmit(request, env);
     }
 
-    if (url.pathname === "/debug-env") {
-      return Response.json({
-        GOOGLE_CLIENT_EMAIL: typeof env.GOOGLE_CLIENT_EMAIL !== "undefined",
-        GOOGLE_PRIVATE_KEY: typeof env.GOOGLE_PRIVATE_KEY !== "undefined",
-        GOOGLE_SPREADSHEET_ID: typeof env.GOOGLE_SPREADSHEET_ID !== "undefined",
-        ADMIN_SECRET: typeof env.ADMIN_SECRET !== "undefined"
-      });
-    }
-
     return env.ASSETS.fetch(request);
   }
 };
