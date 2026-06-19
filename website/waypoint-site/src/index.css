@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-slate-900: #0F172A;
+  --color-slate-800: #1E293B;
+  --color-slate-400: #94A3B8;
+  --color-slate-100: #F1F5F9;
+  --color-orange-500: #F97316;
+  --color-orange-600: #EA580C;
+  --color-indigo-500: #6366F1;
+  --color-pink-500: #EC4899;
+  --color-green-500: #22C55E;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+}
+
+/* Gradient orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.orb-indigo {
+  background: radial-gradient(circle, #6366F1, transparent 70%);
+}
+
+.orb-orange {
+  background: radial-gradient(circle, #F97316, transparent 70%);
+}
+
+.orb-pink {
+  background: radial-gradient(circle, #EC4899, transparent 70%);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-up animation */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+/* Slow spin for gradient orb */
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 30s linear infinite;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Focus ring for inputs */
+input:focus-visible, textarea:focus-visible {
+  outline: none;
+  ring: 2px solid #F97316;
+  ring-offset: 2px;
+}
+
+/* Scroll margin for navbar offset */
+section {
+  scroll-margin-top: 5rem;
+}
+
+/* Masonry grid */
+.masonry {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+
+/* Active nav indicator */
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #F97316, #EC4899);
+  border-radius: 3px 3px 0 0;
+  transition: left 0.3s ease, width 0.3s ease;
+}
