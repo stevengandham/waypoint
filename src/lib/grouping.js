@@ -43,3 +43,14 @@ export function groupLeads(people, { minSize = 6, maxSize = 12 } = {}) {
 
   return { groups, unmatchedIds: Array.from(unassigned.keys()).sort((a, b) => a - b) };
 }
+
+export function buildPeopleFromRows(rows) {
+  const people = [];
+  for (let i = 1; i < rows.length; i++) {
+    const row = rows[i];
+    const availabilityStr = row[5] || '';
+    const sheetRow = i + 1;
+    people.push({ id: sheetRow, slots: parseAvailability(availabilityStr) });
+  }
+  return people;
+}

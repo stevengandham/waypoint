@@ -1,4 +1,4 @@
-import { parseAvailability, ALL_SLOTS, groupLeads } from '../lib/grouping.js';
+import { parseAvailability, ALL_SLOTS, groupLeads, buildPeopleFromRows } from '../lib/grouping.js';
 
 function assertEqual(actual, expected, label, results) {
   const pass = JSON.stringify(actual) === JSON.stringify(expected);
@@ -61,6 +61,20 @@ export function handleSelfTest() {
     const { groups, unmatchedIds } = groupLeads([...groupA, ...groupB], { minSize: 6, maxSize: 12 });
     assertEqual(groups.length, 2, 'groupLeads forms 2 separate groups across different slots', results);
     assertEqual(unmatchedIds, [], 'groupLeads leaves nobody unmatched across 2 full groups', results);
+  }
+
+  {
+    const rows = [
+      ['firstName', 'lastName', 'email', 'phone', 'lifeGroup', 'availability'],
+      ['A', 'B', 'a@x.com', '555', 'Yes', 'Mon-Morning'],
+      ['C', 'D', 'c@x.com', '555', 'No', '']
+    ];
+    const people = buildPeopleFromRows(rows);
+    assertEqual(people.length, 2, 'buildPeopleFromRows skips the header row', results);
+    assertEqual(people[0].id, 2, 'buildPeopleFromRows maps first data row to sheet row 2', results);
+    assertEqual(people[1].id, 3, 'buildPeopleFromRows maps second data row to sheet row 3', results);
+    assertEqual(Array.from(people[0].slots), ['Mon-Morning'], 'buildPeopleFromRows parses availability column', results);
+    assertEqual(Array.from(people[1].slots), [], 'buildPeopleFromRows handles missing availability', results);
   }
 
   const failed = results.filter(r => !r.pass);
