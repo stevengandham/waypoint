@@ -141,9 +141,9 @@ const content = {
       { id: "vision", label: "Vision" },
       { id: "values", label: "Values" },
       { id: "contact", label: "Contact" },
-      { id: "interest", label: "Get Connected" },
       { id: "socials", label: "Socials" },
       { id: "gallery", label: "Gallery" },
+      { id: "interest", label: "Get Connected" },
     ],
   },
 };
