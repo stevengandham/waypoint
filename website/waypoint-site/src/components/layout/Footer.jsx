@@ -9,7 +9,7 @@ export default function Footer() {
         {content.site.footer} &copy; {year}
       </p>
       <a
-        href="https://beachpoint.church"
+        href="https://www.instagram.com/beachpointchurch"
         target="_blank"
         rel="noopener noreferrer"
         className="text-xs text-slate-500 hover:text-orange-500 transition-colors mt-1 inline-block"
