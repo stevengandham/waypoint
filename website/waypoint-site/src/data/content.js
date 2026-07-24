@@ -131,7 +131,13 @@ const content = {
 
   gallery: {
     heading: "Gallery",
-    placeholder: "Photos coming soon — check back after our next event!",
+    images: [
+      "/images/image0.png",
+      "/images/image1.png",
+      "/images/image2.png",
+      "/images/image3.jpeg",
+      "/images/image4.jpeg",
+    ],
   },
 
   nav: {
